@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>quizz.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="bpd.html">
+                bpd.js
+              </a>
+            
+              
+              <a class="source" href="budget.html">
+                budget.js
+              </a>
+            
+              
+              <a class="source" href="json.html">
+                json.js
+              </a>
+            
+              
+              <a class="source" href="main.html">
+                main.js
+              </a>
+            
+              
+              <a class="source" href="quizz.html">
+                quizz.js
+              </a>
+            
+              
+              <a class="source" href="ts.html">
+                ts.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>quizz.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> questionURL = <span class="hljs-string">"http://localhost:9001/src/quizz.json"</span>;
+<span class="hljs-keyword">var</span> request = <span class="hljs-keyword">new</span> XMLHttpRequest();
+request.open(<span class="hljs-string">'GET'</span>, questionURL);
+request.responseType = <span class="hljs-string">'json'</span>;
+request.send();
+
+request.onload = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> allQuestions = request.response;
+
+
+  <span class="hljs-keyword">var</span> currentQuestion = <span class="hljs-number">0</span>,
+      correctAnswers = <span class="hljs-number">0</span>,
+      userAnswers = [],
+      calloutExist = <span class="hljs-literal">false</span>;
+
+  <span class="hljs-keyword">var</span> qForm = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'q-form'</span>),
+      qQuestion = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'q-question-name'</span>),
+      qContainer = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'q-answers-container'</span>),
+      qNext = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'q-next'</span>),
+      qBack = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'q-back'</span>),
+      qCallout = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'callout'</span>),
+      continueQ = <span class="hljs-literal">false</span>;
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toggleBtn</span>(<span class="hljs-params"></span>) </span>{
+    qBack.disabled = !qBack.disabled;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">previousQuestion</span>(<span class="hljs-params">e</span>) </span>{
+    e.preventDefault();
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createChoices</span>(<span class="hljs-params">array</span>) </span>{
+    <span class="hljs-keyword">var</span> DOMelems = <span class="hljs-string">''</span>,
+      newHTML = <span class="hljs-string">''</span>,
+      html = <span class="hljs-string">'&lt;label for="answer-%id%"&gt;&lt;input id="answer-%id%" type="radio" name="answers" value="%id%"&gt;%value%&lt;/label&gt;'</span>;
+
+    array.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">choiceLabel, index, currArray</span>) </span>{
+      newHTML = html.split(<span class="hljs-string">'%id%'</span>).join(index);
+      newHTML = newHTML.replace(<span class="hljs-string">'%value%'</span>, choiceLabel)
+      DOMelems += newHTML;
+    });
+    <span class="hljs-keyword">return</span> DOMelems;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createQuestions</span>(<span class="hljs-params">qID</span>) </span>{
+    qQuestion.innerHTML = allQuestions[qID].question
+    qContainer.innerHTML = createChoices(allQuestions[qID].choices);
+
+    <span class="hljs-keyword">if</span> (userAnswers.length &amp;&amp; userAnswers.indexOf(userAnswers[qID]) === qID) {
+      <span class="hljs-keyword">var</span> checkedInput = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"answer-"</span> + userAnswers[qID]);
+      checkedInput.checked = <span class="hljs-literal">true</span>;
+    }
+  };
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkRadiosAnswer</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> result,
+      radios = <span class="hljs-built_in">document</span>.getElementsByName(<span class="hljs-string">'answers'</span>);
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; radios.length; i++) {
+      <span class="hljs-keyword">if</span> (radios[i].checked) {
+        <span class="hljs-keyword">return</span> radios[i].value;
+        <span class="hljs-keyword">break</span>;
+      }
+    }
+
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hideCallout</span>(<span class="hljs-params"></span>) </span>{
+    qCallout.style.display = <span class="hljs-string">'none'</span>;
+  }
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showCallout</span>(<span class="hljs-params"></span>) </span>{
+    qCallout.style.display = <span class="hljs-string">'block'</span>;
+  }
+
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">countCorrectAnswers</span>(<span class="hljs-params"></span>) </span>{
+    allQuestions.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">currVal, index, currArray</span>) </span>{
+      <span class="hljs-keyword">if</span> (currVal.correctAnswer == userAnswers[index]) {
+        correctAnswers++;
+      }
+    });
+  };
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printResultsMsg</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> html = <span class="hljs-string">'&lt;h2&gt;Finished&lt;/h2&gt;'</span>;
+    html += <span class="hljs-string">"&lt;p&gt;You got "</span> + correctAnswers + <span class="hljs-string">" out of "</span> + allQuestions.length + <span class="hljs-string">" questions correct"</span>;
+
+    qForm.innerHTML = html;
+  }
+
+
+
+  qBack.addEventListener(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    e.preventDefault();
+    hideCallout();
+
+    <span class="hljs-keyword">if</span> (currentQuestion &gt; <span class="hljs-number">0</span>) {
+      currentQuestion--;
+      createQuestions(currentQuestion);
+    }
+    <span class="hljs-keyword">if</span> (currentQuestion === <span class="hljs-number">0</span>) { toggleBtn(); }
+
+  });
+
+  qNext.addEventListener(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    e.preventDefault();
+
+    <span class="hljs-keyword">var</span> userInput = checkRadiosAnswer();
+
+    <span class="hljs-keyword">if</span> (!userInput) { showCallout() };
+
+    <span class="hljs-keyword">if</span> (userInput) {
+      hideCallout();
+
+      <span class="hljs-keyword">if</span> (currentQuestion &lt;= <span class="hljs-number">0</span>) { toggleBtn(); }
+
+      <span class="hljs-keyword">if</span> (currentQuestion &lt; allQuestions.length - <span class="hljs-number">1</span>) {
+        userAnswers[currentQuestion] = userInput;
+        currentQuestion++;
+        createQuestions(currentQuestion);
+      } <span class="hljs-keyword">else</span> {
+        userAnswers[currentQuestion] = userInput;
+        countCorrectAnswers();
+        printResultsMsg();
+      }
+    };
+
+  });
+
+  createQuestions(<span class="hljs-number">0</span>);
+
+};</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

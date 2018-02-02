@@ -1,0 +1,34 @@
+//- layout.pug
+block config
+  include ../partials/_config
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title My Site - #{title}
+    link(rel="stylesheet", href="css/main.css")
+      //- script(src='/jquery.js')
+  body
+    include _topnav
+    .container
+      block content
+
+    block foot
+      #footer.row
+        .small-12.columns: small by José Rosado
+
+    script(src='//localhost:35729/livereload.js')
+    script(src='jquery.js')
+    script(src='foundation.min.js')
+    //- script(src='node_modules/foundation-sites/js/foundation.util.mediaQuery.js')
+    //- script(src='node_modules/foundation-sites/js/foundation.util.keyboard.js')
+    //- script(src='node_modules/foundation-sites/js/foundation.util.box.js')
+    //- script(src='node_modules/foundation-sites/js/foundation.util.nest.js')
+    //- script(src='node_modules/foundation-sites/js/foundation.dropdownMenu.js')
+    script.
+      $(document).foundation();
+
+    block scripts

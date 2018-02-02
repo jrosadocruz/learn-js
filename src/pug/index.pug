@@ -1,0 +1,34 @@
+extends layouts/_layout.pug
+block config
+  - var title = "Javascript";
+
+block scripts
+  script(src="js/quizz.js")
+
+block content
+  .row: .small-12.columns
+    h1 Quizz
+
+  .row: fieldset.small-6.columns
+    form#q-form
+      fieldset.fieldset
+        legend#q-question-name Example Question?
+        div#q-answers-container
+          label(for='answer-1')
+            input#answer-1(type='radio', name='answers', value='ESD')
+            | Answer 1
+          label(for='answer-2')
+            input#answer-2(type='radio', name='answers', value='Wirecard')
+            | Answer 2
+          label(for='answer-3')
+            input#answer-3(type='radio', name='answers', value='PUCMM')
+            | Answer 3
+        button#q-back.button(type="submit", disabled) Pregunta Anterior
+        button#q-next.button(type="submit") Siguiente Pregunta
+        div#callout.alert.callout(style="display: none;") Please answer the question
+
+
+
+    //- script(src='vendor/jquery.js')
+    //- script(src='data.js')
+    //- script(src='js/main.js')

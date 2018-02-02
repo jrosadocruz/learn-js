@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>My Site - Javascript</title>
+    <link rel="stylesheet" href="css/main.css"/>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu="">
+          <li class="menu-text">Javascript</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="small-12 columns">
+          <h1>Quizz</h1>
+        </div>
+      </div>
+      <div class="row">
+        <fieldset class="small-6 columns">
+          <form id="q-form">
+            <fieldset class="fieldset">
+              <legend id="q-question-name">Example Question?</legend>
+              <div id="q-answers-container">
+                <label for="answer-1">
+                  <input id="answer-1" type="radio" name="answers" value="ESD"/>Answer 1
+                </label>
+                <label for="answer-2">
+                  <input id="answer-2" type="radio" name="answers" value="Wirecard"/>Answer 2
+                </label>
+                <label for="answer-3">
+                  <input id="answer-3" type="radio" name="answers" value="PUCMM"/>Answer 3
+                </label>
+              </div>
+              <button class="button" id="q-back" type="submit" disabled="disabled">Pregunta Anterior</button>
+              <button class="button" id="q-next" type="submit">Siguiente Pregunta</button>
+              <div class="alert callout" id="callout" style="display: none;">Please answer the question</div>
+            </fieldset>
+          </form>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row" id="footer">
+      <div class="small-12 columns"><small>by José Rosado</small></div>
+    </div>
+    <script src="//localhost:35729/livereload.js"></script>
+    <script src="jquery.js"></script>
+    <script src="foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      
+    </script>
+    <script src="js/quizz.js"></script>
+  </body>
+</html>

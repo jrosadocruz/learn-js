@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>ts.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="bpd.html">
+                bpd.js
+              </a>
+            
+              
+              <a class="source" href="budget.html">
+                budget.js
+              </a>
+            
+              
+              <a class="source" href="json.html">
+                json.js
+              </a>
+            
+              
+              <a class="source" href="main.html">
+                main.js
+              </a>
+            
+              
+              <a class="source" href="quizz.html">
+                quizz.js
+              </a>
+            
+              
+              <a class="source" href="ts.html">
+                ts.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>ts.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> number = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> count1 = <span class="hljs-number">2</span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doSomething</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++) {
+        <span class="hljs-built_in">console</span>.log(i);
+    }
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Finally:'</span> + i);
+}
+doSomething();
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doSome</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i_1 = <span class="hljs-number">0</span>; i_1 &lt; <span class="hljs-number">5</span>; i_1++) {
+        <span class="hljs-built_in">console</span>.log(i_1);
+    }
+    <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Finally:'</span> + i);
+}
+doSome();
+<span class="hljs-keyword">var</span> count = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">var</span> a;
+<span class="hljs-keyword">var</span> b;
+<span class="hljs-keyword">var</span> c;
+<span class="hljs-keyword">var</span> d;
+<span class="hljs-keyword">var</span> e = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">var</span> f = [<span class="hljs-number">1</span>, <span class="hljs-literal">true</span>, <span class="hljs-string">'a'</span>, <span class="hljs-literal">false</span>];
+<span class="hljs-keyword">var</span> ColorRed = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">var</span> ColorGreen = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> ColorBlue = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">var</span> Color;
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">Color</span>) </span>{
+    Color[Color[<span class="hljs-string">"Red"</span>] = <span class="hljs-number">0</span>] = <span class="hljs-string">"Red"</span>;
+    Color[Color[<span class="hljs-string">"Green"</span>] = <span class="hljs-number">1</span>] = <span class="hljs-string">"Green"</span>;
+    Color[Color[<span class="hljs-string">"Blue"</span>] = <span class="hljs-number">2</span>] = <span class="hljs-string">"Blue"</span>;
+})(Color || (Color = {}));
+;
+<span class="hljs-keyword">var</span> backgroundColor = Color.Red;
+<span class="hljs-keyword">var</span> message;
+message = <span class="hljs-string">'abc'</span>;
+<span class="hljs-keyword">var</span> log = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">message</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(message);
+};
+<span class="hljs-keyword">var</span> doLog = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">message</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(message);
+};
+<span class="hljs-keyword">var</span> doLog2 = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">message</span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">console</span>.log(message); };
+<span class="hljs-keyword">var</span> drawPoint = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">point</span>) </span>{
+};
+drawPoint({
+    <span class="hljs-attr">x</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">y</span>: <span class="hljs-number">2</span>
+});
+<span class="hljs-keyword">var</span> drawPoint2 = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">point</span>) </span>{
+};
+drawPoint({
+    <span class="hljs-attr">x</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">y</span>: <span class="hljs-number">2</span>,
+});
+;
+<span class="hljs-keyword">var</span> drawPoint3 = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">point</span>) </span>{
+};
+drawPoint3({
+    <span class="hljs-attr">x</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">y</span>: <span class="hljs-number">2</span>
+});
+<span class="hljs-keyword">var</span> PointClass = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">PointClass</span>(<span class="hljs-params"></span>) </span>{
+    }
+    PointClass.prototype.draw = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"X: "</span> + <span class="hljs-keyword">this</span>.x + <span class="hljs-string">", Y: "</span> + <span class="hljs-keyword">this</span>.y);
+    };
+    PointClass.prototype.getDistance = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">another</span>) </span>{
+    };
+    <span class="hljs-keyword">return</span> PointClass;
+}());
+<span class="hljs-keyword">var</span> point = <span class="hljs-keyword">new</span> PointClass();
+point.x = <span class="hljs-number">1</span>;
+point.y = <span class="hljs-number">2</span>;
+point.draw();
+<span class="hljs-keyword">var</span> Punto = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Punto</span>(<span class="hljs-params">x, y</span>) </span>{
+        <span class="hljs-keyword">this</span>.x = x;
+        <span class="hljs-keyword">this</span>.y = y;
+    }
+    Punto.prototype.draw = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Punto X: "</span> + <span class="hljs-keyword">this</span>.x + <span class="hljs-string">", Y: "</span> + <span class="hljs-keyword">this</span>.y);
+    };
+    <span class="hljs-keyword">return</span> Punto;
+}());
+<span class="hljs-keyword">var</span> punto = <span class="hljs-keyword">new</span> Punto(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+punto.draw();
+<span class="hljs-keyword">var</span> PuntoAlt = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">PuntoAlt</span>(<span class="hljs-params">x, y</span>) </span>{
+        <span class="hljs-keyword">this</span>.x = x;
+        <span class="hljs-keyword">this</span>.y = y;
+    }
+    PuntoAlt.prototype.draw = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Punto X: "</span> + <span class="hljs-keyword">this</span>.x + <span class="hljs-string">", Y: "</span> + <span class="hljs-keyword">this</span>.y);
+    };
+    <span class="hljs-keyword">return</span> PuntoAlt;
+}());
+<span class="hljs-keyword">var</span> puntoAlt = <span class="hljs-keyword">new</span> PuntoAlt(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+puntoAlt.draw();
+<span class="hljs-keyword">var</span> PuntoAlt2 = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">PuntoAlt2</span>(<span class="hljs-params">x, y</span>) </span>{
+        <span class="hljs-keyword">this</span>.x = x;
+        <span class="hljs-keyword">this</span>.y = y;
+    }
+    PuntoAlt2.prototype.draw = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Punto X: "</span> + <span class="hljs-keyword">this</span>.x + <span class="hljs-string">", Y: "</span> + <span class="hljs-keyword">this</span>.y);
+    };
+    <span class="hljs-keyword">return</span> PuntoAlt2;
+}());
+<span class="hljs-keyword">var</span> PuntoClass = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">PuntoClass</span>(<span class="hljs-params">_x, _y</span>) </span>{
+        <span class="hljs-keyword">this</span>._x = _x;
+        <span class="hljs-keyword">this</span>._y = _y;
+    }
+    PuntoClass.prototype.draw = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Punto X: "</span> + <span class="hljs-keyword">this</span>._x + <span class="hljs-string">", Y: "</span> + <span class="hljs-keyword">this</span>._y);
+    };
+    <span class="hljs-built_in">Object</span>.defineProperty(PuntoClass.prototype, <span class="hljs-string">"x"</span>, {
+        <span class="hljs-attr">get</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._x;
+        },
+        <span class="hljs-attr">set</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>{
+            <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span>)
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Value cannot be less than 0'</span>);
+            <span class="hljs-keyword">this</span>._x = value;
+        },
+        <span class="hljs-attr">enumerable</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">configurable</span>: <span class="hljs-literal">true</span>
+    });
+    <span class="hljs-keyword">return</span> PuntoClass;
+}());
+<span class="hljs-keyword">var</span> newPunto = <span class="hljs-keyword">new</span> PuntoClass(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+newPunto.x = <span class="hljs-number">20</span>;
+<span class="hljs-keyword">var</span> valor = newPunto.x;
+<span class="hljs-built_in">console</span>.log(valor);
+<span class="hljs-keyword">var</span> NuevaClase = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">NuevaClase</span>(<span class="hljs-params">_x, _y</span>) </span>{
+        <span class="hljs-keyword">this</span>._x = _x;
+        <span class="hljs-keyword">this</span>._y = _y;
+    }
+    NuevaClase.prototype.dibujar = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'dibujar x: '</span> + <span class="hljs-keyword">this</span>._x + <span class="hljs-string">", dibujar y: "</span> + <span class="hljs-keyword">this</span>._y);
+    };
+    <span class="hljs-keyword">return</span> NuevaClase;
+}());
+<span class="hljs-keyword">var</span> LikeBtn = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">LikeBtn</span>(<span class="hljs-params">_highlighted, _likeCount</span>) </span>{
+        <span class="hljs-keyword">if</span> (_highlighted === <span class="hljs-keyword">void</span> <span class="hljs-number">0</span>) { _highlighted = <span class="hljs-literal">false</span>; }
+        <span class="hljs-keyword">if</span> (_likeCount === <span class="hljs-keyword">void</span> <span class="hljs-number">0</span>) { _likeCount = <span class="hljs-number">10</span>; }
+        <span class="hljs-keyword">this</span>._highlighted = _highlighted;
+        <span class="hljs-keyword">this</span>._likeCount = _likeCount;
+    }
+    LikeBtn.prototype.onClick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">this</span>._likeCount += (<span class="hljs-keyword">this</span>._highlighted) ? <span class="hljs-number">-1</span> : +<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">this</span>._highlighted = !<span class="hljs-keyword">this</span>._highlighted;
+    };
+    <span class="hljs-built_in">Object</span>.defineProperty(LikeBtn.prototype, <span class="hljs-string">"likesCount"</span>, {
+        <span class="hljs-attr">get</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._likeCount;
+        },
+        <span class="hljs-attr">enumerable</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">configurable</span>: <span class="hljs-literal">true</span>
+    });
+    <span class="hljs-keyword">return</span> LikeBtn;
+}());
+<span class="hljs-keyword">var</span> newLike = <span class="hljs-keyword">new</span> LikeBtn();
+<span class="hljs-built_in">console</span>.log(newLike.likesCount);
+newLike.onClick();
+<span class="hljs-built_in">console</span>.log(newLike.likesCount);</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+//- layout.pug
+block config
+  include ../partials/_config
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title My Site - #{title}
+    link(rel="stylesheet", href="css/budget.css")
+    //- link(href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css", rel="stylesheet", type="text/css")
+  body
+    .container-alt
+      block content
+
+    script(src='//localhost:35729/livereload.js')
+    script(src='jquery.js')
+
+    block scripts

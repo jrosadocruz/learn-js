@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Jose Jose</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="bpd.html">
+                bpd.js
+              </a>
+            
+              
+              <a class="source" href="budget.html">
+                budget.js
+              </a>
+            
+              
+              <a class="source" href="json.html">
+                json.js
+              </a>
+            
+              
+              <a class="source" href="main.html">
+                main.js
+              </a>
+            
+              
+              <a class="source" href="quizz.html">
+                quizz.js
+              </a>
+            
+              
+              <a class="source" href="ts.html">
+                ts.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h1 id="jose-jose">Jose Jose</h1>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Esto es para poder crear modelos de Backbone. Por convesión, la primera letra de cada palabra debe estar en <em>mayúscula</em>. <code>var TodoItem</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">var</span> DATA = DATA();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <h1 id="jose">Jose</h1>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">phi</span>(<span class="hljs-params">table</span>) </span>{
+  <span class="hljs-keyword">return</span> (table[<span class="hljs-number">3</span>] * table[<span class="hljs-number">0</span>] - table[<span class="hljs-number">2</span>] * table[<span class="hljs-number">1</span>])/
+          <span class="hljs-built_in">Math</span>.sqrt((table[<span class="hljs-number">2</span>] + table[<span class="hljs-number">3</span>]) *
+                    (table[<span class="hljs-number">0</span>] + table[<span class="hljs-number">2</span>]) *
+                    (table[<span class="hljs-number">1</span>] + table[<span class="hljs-number">3</span>]) *
+                    (table[<span class="hljs-number">0</span>] + table[<span class="hljs-number">2</span>]));
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hasEvent</span>(<span class="hljs-params">event, entry</span>) </span>{
+  <span class="hljs-keyword">return</span> entry.events.indexOf(event) != <span class="hljs-number">-1</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">tableFor</span>(<span class="hljs-params">event, journal</span>) </span>{
+
+  <span class="hljs-keyword">var</span> table = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>];
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; journal.length; i++) {
+    <span class="hljs-keyword">var</span> entry = journal[i],
+        index = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">if</span>(hasEvent(event, entry)) index += <span class="hljs-number">1</span>;
+
+    <span class="hljs-keyword">if</span>(entry.squirrel) index += <span class="hljs-number">2</span>;
+
+    table[index] += <span class="hljs-number">1</span>;
+  }
+
+  <span class="hljs-keyword">return</span> table;
+
+}
+
+
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">gatherCorrelations</span>(<span class="hljs-params">journal</span>) </span>{
+
+  <span class="hljs-keyword">var</span> phis = {};
+
+  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> entry = <span class="hljs-number">0</span>; entry &lt; journal.length; entry++) {
+
+    <span class="hljs-keyword">var</span> events = journal[entry].events;
+
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; events.length; i++) {
+
+      <span class="hljs-keyword">var</span> event = events[i];
+
+      <span class="hljs-keyword">if</span>(!(event <span class="hljs-keyword">in</span> phis))
+        phis[event] = phi(tableFor(event,journal));
+
+    }
+
+  }
+  <span class="hljs-keyword">return</span> phis;
+
+}
+
+<span class="hljs-keyword">var</span> correlations = gatherCorrelations(DATA);
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> event <span class="hljs-keyword">in</span> correlations) {
+  <span class="hljs-keyword">var</span> correlation = correlations[event];
+  <span class="hljs-keyword">if</span> (correlation &gt; <span class="hljs-number">0.1</span> || correlation &lt; <span class="hljs-number">-0.1</span>)
+    <span class="hljs-built_in">console</span>.log(event + <span class="hljs-string">": "</span> + correlation);
+}
+
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; DATA.length; i++) {
+  <span class="hljs-keyword">var</span> entry = DATA[i];
+  <span class="hljs-keyword">if</span> (hasEvent(<span class="hljs-string">"peanuts"</span>, entry) &amp;&amp;
+      !hasEvent(<span class="hljs-string">"brushed teeth"</span>, entry))
+    entry.events.push(<span class="hljs-string">"peanut teeth"</span>);
+}
+
+<span class="hljs-built_in">console</span>.log(phi(tableFor(<span class="hljs-string">'peanut teeth'</span>, DATA)));</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

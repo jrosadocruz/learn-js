@@ -1,0 +1,26 @@
+{
+    "name": "docco-egal",
+    "version": "1.0.0",
+    "dependencies": {
+        "foundation-sites": "^6.4.4-rc1",
+        "node-sass": "^4.7.2",
+        "pug": "^2.0.0-rc.4",
+        "ruby": "^0.6.1"
+    },
+    "devDependencies": {
+        "grunt": "^1.0.1",
+        "grunt-contrib-connect": "^1.0.2",
+        "grunt-contrib-pug": "^1.0.0",
+        "grunt-contrib-watch": "^1.0.0",
+        "grunt-docco2": "^0.2.1",
+        "grunt-jade": "^0.5.1",
+        "grunt-sass": "^2.0.0",
+        "grunt-ts": "^6.0.0-beta.17",
+        "grunt-typescript": "^0.8.0",
+        "matchdep": "~0.1.2",
+        "typescript": "^2.6.2"
+    },
+    "engines": {
+        "node": ">=0.8.0"
+    }
+}
